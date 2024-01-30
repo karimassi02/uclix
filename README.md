@@ -1,4 +1,4 @@
-# Git practises
+# Git practises !
 
 ### When commenting, please make sure to title your commit :
 
