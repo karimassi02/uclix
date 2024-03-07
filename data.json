@@ -80,3 +80,50 @@
     ],
     "tag": [{"Future"}, {"Time"}, {"Heist"}]
   }
+
+  "film": {
+    "name": "Rush Hour",
+    "date": "1998-18-09",
+    "language": "English",
+    "duration": "98 minutes",
+    "studio": "New line cinema",
+    "people": [
+      {
+        "role": {
+          "name": "Brett Ratner"
+        }
+      },
+      {
+        "role": {
+          "name": "Jackie Chan"
+        }
+      },
+      {
+        "role": {
+          "name": "Chris Tucker"
+        }
+      }
+    ],
+    "category": [{"Comedy"}],
+    "review": [
+      {
+        "user": {
+          "name": "John Doe"
+        },
+        "rating": 5
+      },
+      {
+        "user": {
+          "name": "Jane Smith"
+        },
+        "rating": 1
+      }
+      {
+        "user": {
+          "name": "Karim"
+        },
+        "rating": 3
+      }
+    ],
+    "tag": [{"funny"}, {"fighting"}, {"mob"}]
+  }
