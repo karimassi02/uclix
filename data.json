@@ -38,3 +38,45 @@
     ],
     "tag": "Space, Time, Exploration"
   }
+
+
+  "film": {
+    "name": "Tenet",
+    "date": "2020-26-08",
+    "language": "English",
+    "duration": "150 minutes",
+    "studio": "Warner Bros",
+    "people": [
+      {
+        "role": {
+          "name": "Christopher Nolan"
+        }
+      },
+      {
+        "role": {
+          "name": "John David Washington"
+        }
+      },
+      {
+        "role": {
+          "name": "Robert Pattinson"
+        }
+      }
+    ],
+    "category": [{"Science Fiction"}],
+    "review": [
+      {
+        "user": {
+          "name": "John Doe"
+        },
+        "rating": 3
+      },
+      {
+        "user": {
+          "name": "Jane Smith"
+        },
+        "rating": 4
+      }
+    ],
+    "tag": [{"Future"}, {"Time"}, {"Heist"}]
+  }
