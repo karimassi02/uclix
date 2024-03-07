@@ -27,7 +27,7 @@
         }
       }
     ],
-    "category": "Science Fiction",
+    "category": [{"Science Fiction"}],
     "review": [
       {
         "user": {
@@ -42,5 +42,6 @@
         "rating": 5
       }
     ],
-    "tag": "Space, Time, Exploration"
+    "tag": [
+      {"Space"},  {"Time"}, {"Exploration"}]
   }
