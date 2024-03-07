@@ -1,0 +1,40 @@
+"film": {
+    "name": "Interstellar",
+    "date": "2014-11-07",
+    "language": "English",
+    "duration": "169 minutes",
+    "studio": "Paramount Pictures",
+    "people": [
+      {
+        "role": {
+          "name": "Christopher Nolan"
+        }
+      },
+      {
+        "role": {
+          "name": "Matthew McConaughey"
+        }
+      },
+      {
+        "role": {
+          "name": "Anne Hathaway"
+        }
+      }
+    ],
+    "category": "Science Fiction",
+    "review": [
+      {
+        "user": {
+          "name": "John Doe"
+        },
+        "rating": 4
+      },
+      {
+        "user": {
+          "name": "Jane Smith"
+        },
+        "rating": 5
+      }
+    ],
+    "tag": "Space, Time, Exploration"
+  }
