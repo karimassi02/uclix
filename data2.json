@@ -1,23 +1,29 @@
 "film": {
-    "name": "Interstellar",
-    "date": "2014-11-07",
+    "name": "Back to the Future",
+    "date": "1985-10-30",
     "language": "English",
-    "duration": "169",
-    "studio": "Paramount Pictures",
+    "duration": "116",
+    "studio": "Universal Pictures",
     "people": [
       {
         "role": {
-          "name": "Christopher Nolan"
+          "name": "Robert Zemeckis",
+          "profession": "Filmmaker",
+          "date of birth": "1952-05-14"
         }
       },
       {
         "role": {
-          "name": "Matthew McConaughey"
+          "name": "Alan Silvestri",
+          "profession": "Composer",
+          "date of birth": "1950-03-26"
         }
       },
       {
         "role": {
-          "name": "Anne Hathaway"
+          "name": "Chistopher Lloyd",
+          "profession": "actor",
+          "date of birth": "1938-10-22"
         }
       }
     ],
