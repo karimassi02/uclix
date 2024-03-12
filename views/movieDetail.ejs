@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .error-message {
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Detail</h1>
+    <% if (movie) { %>
+        <div>
+            <h2>Name: <%= movie.name %></h2>
+            <p>Date: <%= movie.date.toDateString() %></p>
+            <p>Language: <%= movie.language %></p>
+            <p>Duration: <%= movie.duration %> minutes</p>
+            <p>Studio: <%= movie.studio %></p>
+            <p>Category: <%= movie.category %></p>
+            <p>Tag: <%= movie.tag %></p>
+            <h3>People:</h3>
+            <ul>
+                <% movie.people.forEach(function(person) { %>
+                    <li><strong><%= person.name %>:</strong> <%= person.role %></li>
+                <% }); %>
+            </ul>
+            <h3>Reviews:</h3>
+            <ul>
+                <% movie.review.forEach(function(review) { %>
+                    <li><strong>User:</strong> <%= review.user %>, <strong>Rating:</strong> <%= review.rating %></li>
+                <% }); %>
+            </ul>
+        </div>
+    <% } else { %>
+        <p>No movie found with the specified ID.</p>
+    <% } %>
+</body>
+</html>
