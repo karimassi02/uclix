@@ -2,7 +2,7 @@
     "name": "Interstellar",
     "date": "2014-11-07",
     "language": "English",
-    "duration": "169 minutes",
+    "duration": "169",
     "studio": "Paramount Pictures",
     "people": [
       {
@@ -37,4 +37,93 @@
       }
     ],
     "tag": "Space, Time, Exploration"
+  }
+
+
+  "film": {
+    "name": "Tenet",
+    "date": "2020-26-08",
+    "language": "English",
+    "duration": "150 minutes",
+    "studio": "Warner Bros",
+    "people": [
+      {
+        "role": {
+          "name": "Christopher Nolan"
+        }
+      },
+      {
+        "role": {
+          "name": "John David Washington"
+        }
+      },
+      {
+        "role": {
+          "name": "Robert Pattinson"
+        }
+      }
+    ],
+    "category": [{"Science Fiction"}],
+    "review": [
+      {
+        "user": {
+          "name": "John Doe"
+        },
+        "rating": 3
+      },
+      {
+        "user": {
+          "name": "Jane Smith"
+        },
+        "rating": 4
+      }
+    ],
+    "tag": [{"Future"}, {"Time"}, {"Heist"}]
+  }
+
+  "film": {
+    "name": "Rush Hour",
+    "date": "1998-18-09",
+    "language": "English",
+    "duration": "98 minutes",
+    "studio": "New line cinema",
+    "people": [
+      {
+        "role": {
+          "name": "Brett Ratner"
+        }
+      },
+      {
+        "role": {
+          "name": "Jackie Chan"
+        }
+      },
+      {
+        "role": {
+          "name": "Chris Tucker"
+        }
+      }
+    ],
+    "category": [{"Comedy"}],
+    "review": [
+      {
+        "user": {
+          "name": "John Doe"
+        },
+        "rating": 5
+      },
+      {
+        "user": {
+          "name": "Jane Smith"
+        },
+        "rating": 1
+      }
+      {
+        "user": {
+          "name": "Karim"
+        },
+        "rating": 3
+      }
+    ],
+    "tag": [{"funny"}, {"fighting"}, {"mob"}]
   }
