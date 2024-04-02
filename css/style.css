@@ -154,3 +154,45 @@ footer {
   padding-left: 40%;
   padding-top: 10%;
 }
+
+.SingleMovie {
+  padding-left: 20%;
+  padding-right: 20%;
+  color: white;
+}
+
+#flex {
+  display: flex;
+  flex-direction: row;
+}
+
+#flex-direction {
+  display: flex;
+  flex-direction: column;
+}
+
+.SingleMovie img {
+  width: 125px;
+  height: 150px;
+  background-color: blue;
+}
+
+.Reviews {
+  font-family: "Jockey One";
+  padding-left: 20%;
+  padding-right: 20%;
+  color: white;
+}
+
+.Reviews h2 {
+  text-align: center;
+  color: white;
+  font-size: 32px;
+}
+
+#Description {
+  padding-left: 10%;
+  width: 800px;
+  height: 100px;
+  flex-direction: column;
+}
