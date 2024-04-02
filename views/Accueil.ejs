@@ -12,11 +12,11 @@
         <h1>Uclix</h1>
         <nav>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Movies</a></li>
-            <li><a href="#">Categories</a></li>
-            <li><a href="#">Top 10</a></li>
-            <li><a href="#">People</a></li>
+            <li><a href="Accueil.ejs" id="currentwindow">Home</a></li>
+            <li><a href="Movies.ejs">Movies</a></li>
+            <li><a href="Categories.ejs">Categories</a></li>
+            <li><a href="Top10.ejs">Top 10</a></li>
+            <li><a href="People.ejs">People</a></li>
           </ul>
         </nav>
       </div>
@@ -32,8 +32,7 @@
     <script>
       function search() {
         var input, filter, ul, li, a, i, txtValue;
-        input = document.getElementById("searchInput");
-        filter = input.value.toUpperCase();
+        input = document.getElementById("searchInput").value.toLowerCase();
         ul = document.getElementById("searchResults");
         li = ul.getElementsByTagName("li");
 

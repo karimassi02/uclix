@@ -11,6 +11,10 @@ body {
   padding: 0 20px;
 }
 
+#currentwindow {
+  color: #ff3f3f;
+}
+
 header {
   background-color: #000000;
   color: #fff;
@@ -44,6 +48,11 @@ nav ul li {
 nav ul li a {
   color: #fff;
   text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: #b64e4e;
+  transition: color 0.3s ease;
 }
 
 #hero {
