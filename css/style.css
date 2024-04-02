@@ -154,3 +154,12 @@ footer {
   padding-left: 40%;
   padding-top: 10%;
 }
+
+#orderbyletter {
+  float: left;
+  clear: both;
+}
+
+#letterstyle {
+  color: #ff3f3f;
+}
