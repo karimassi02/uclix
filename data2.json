@@ -1,47 +1,440 @@
 "film": {
-    "name": "Back to the Future",
-    "date": "1985-10-30",
-    "language": "English",
-    "duration": "116",
-    "studio": "Universal Pictures",
-    "people": [
-      {
-        "role": {
-          "name": "Robert Zemeckis",
-          "profession": "Filmmaker",
-          "date of birth": "1952-05-14"
-        }
-      },
-      {
-        "role": {
-          "name": "Alan Silvestri",
-          "profession": "Composer",
-          "date of birth": "1950-03-26"
-        }
-      },
-      {
-        "role": {
-          "name": "Chistopher Lloyd",
-          "profession": "actor",
-          "date of birth": "1938-10-22"
-        }
+  "name": "Back to the Future",
+  "date": "1985-10-30",
+  "language": "English",
+  "duration": "116",
+  "studio": "Universal Pictures",
+  "people": [
+    {
+      "role": {
+        "name": "Robert Zemeckis",
+        "profession": "Filmmaker",
+        "date of birth": "1952-05-14"
       }
-    ],
-    "category": [{"Science Fiction"}],
-    "review": [
-      {
-        "user": {
-          "name": "John Doe"
-        },
-        "rating": 4
-      },
-      {
-        "user": {
-          "name": "Jane Smith"
-        },
-        "rating": 5
+    },
+    {
+      "role": {
+        "name": "Alan Silvestri",
+        "profession": "Composer",
+        "date of birth": "1950-03-26"
       }
-    ],
-    "tag": [
-      {"Space"},  {"Time"}, {"Exploration"}]
-  }
+    },
+    {
+      "role": {
+        "name": "Chistopher Lloyd",
+        "profession": "actor",
+        "date of birth": "1938-10-22"
+      }
+    }
+  ],
+  "category": [{"Science Fiction"}],
+  "review": [
+    {
+      "user": {
+        "name": "John Doe"
+      },
+      "rating": 4
+    },
+    {
+      "user": {
+        "name": "Jane Smith"
+      },
+      "rating": 5
+    }
+  ],
+  "tag": [
+    {"Future"},  {"Time"}, {"Exploration"}]
+}
+
+"film": {
+  "name": "Annabelle",
+  "date": "2014-09-29",
+  "language": "English",
+  "duration": "99",
+  "studio": "Warner Bros",
+  "people": [
+    {
+      "role": {
+        "name": "John R. Leonetti",
+        "profession": "Filmmaker",
+        "date of birth": "1956-07-04"
+      }
+    },
+    {
+      "role": {
+        "name": "Gary Dauberman",
+        "profession": "scriptwriter",
+        "date of birth": "1976-07-16"
+      }
+    },
+    {
+      "role": {
+        "name": "Joseph Bishara",
+        "profession": "composer",
+        "date of birth": "1970-07-26"
+      }
+    },
+    {
+      "role": {
+        "name": "Annabelle Wallis",
+        "profession": "actor",
+        "date of birth": "1984-09-05"
+      }
+    },
+    {
+      "role": {
+        "name": "Ward Horton",
+        "profession": "actor",
+        "date of birth": "1976-01-14"
+      }
+    }
+  ],
+  "category": [{"Horror"}],
+  "review": [
+    {
+      "user": {
+        "name": "Karim"
+      },
+      "rating": 2.5
+    },
+    {
+      "user": {
+        "name": "Vincenzo"
+      },
+      "rating": 4
+    }
+  ],
+  "tag": [
+    {"Horror"},  {"WOAAAA"}, {"Afraid"}]
+}
+
+"film": {
+  "name": "The Fast and the Furious",
+  "date": "2001-09-26",
+  "language": "English",
+  "duration": "106",
+  "studio": "Universal Pictures",
+  "people": [
+    {
+      "role": {
+        "name": "Rob Cohen",
+        "profession": "Filmmaker",
+        "date of birth": "1949-03-12"
+      }
+    },
+    {
+      "role": {
+        "name": "Gary Scott Thompson",
+        "profession": "scriptwriter",
+        "date of birth": "1959-10-07"
+      }
+    },
+    {
+      "role": {
+        "name": "BT",
+        "profession": "Composer",
+        "date of birth": "1970-10-04"
+      }
+    },
+    {
+      "role": {
+        "name": "Vin Diesel",
+        "profession": "actor",
+        "date of birth": "1967-07-18"
+      }
+    },
+    {
+      "role": {
+        "name": "Paul Walker",
+        "profession": "actor",
+        "date of birth": "1973-09-12"
+      }
+    }
+  ],
+  "category": [{"Action"}],
+  "review": [
+    {
+      "user": {
+        "name": "John Doe"
+      },
+      "rating": 4
+    },
+    {
+      "user": {
+        "name": "Jane Smith"
+      },
+      "rating": 1
+    }
+  ],
+  "tag": [
+    {"Cars"},  {"Action"}, {"Dangerous"}]
+}
+
+"film": {
+  "name": "Cars",
+  "date": "2006-06-14",
+  "language": "English",
+  "duration": "116",
+  "studio": "Walt Disney Pictures",
+  "people": [
+    {
+      "role": {
+        "name": "John Lasseter",
+        "profession": "Filmmaker",
+        "date of birth": "1957-01-12"
+      }
+    },
+    {
+      "role": {
+        "name": "Bonnie Hunt",
+        "profession": "actor",
+        "date of birth": "1961-09-22"
+      }
+    },
+    {
+      "role": {
+        "name": "Owen Wilson",
+        "profession": "actor",
+        "date of birth": "1968-11-18"
+      }
+    }
+  ],
+  "category": [{"Comedy"}],
+  "review": [
+    {
+      "user": {
+        "name": "John Doe"
+      },
+      "rating": 5
+    },
+    {
+      "user": {
+        "name": "Jane Smith"
+      },
+      "rating": 4.5
+    }
+  ],
+  "tag": [
+    {"Cars"},  {"Comedy"}, {"Cartoon "}]
+}
+
+"film": {
+  "name": "Night at the Museum",
+  "date": "2006-12-17",
+  "language": "English",
+  "duration": "108",
+  "studio": "20th Century Fox",
+  "people": [
+    {
+      "role": {
+        "name": "Shawn Levy",
+        "profession": "Filmmaker",
+        "date of birth": "1968-07-23"
+      }
+    },
+    {
+      "role": {
+        "name": "Ben Stiller",
+        "profession": "actor",
+        "date of birth": "1965-11-30"
+      }
+    },
+    {
+      "role": {
+        "name": "Owen Wilson",
+        "profession": "actor",
+        "date of birth": "1968-11-18"
+      }
+    },
+    {
+      "role": {
+        "name": "Robin Williams",
+        "profession": "actor",
+        "date of birth": "1951-07-21"
+      }
+    },
+    {
+      "role": {
+        "name": "Robert Ben Garant",
+        "profession": "scriptwriter",
+        "date of birth": "1970-09-14"
+      }
+    },
+    {
+      "role": {
+        "name": "Alan Silvestri",
+        "profession": "composer",
+        "date of birth": "1950-03-26"
+      }
+    },
+    {
+      "role": {
+        "name": "Dick Van Dyke",
+        "profession": "actor",
+        "date of birth": "1925-12-13"
+      }
+    }
+  ],
+  "category": [{"Comedy"}],
+  "review": [
+    {
+      "user": {
+        "name": "John Doe"
+      },
+      "rating": 5
+    },
+    {
+      "user": {
+        "name": "Jane Smith"
+      },
+      "rating": 4.5
+    }
+  ],
+  "tag": [
+    {"Statue"},  {"Comedy"}, {"Magic"}]
+}
+
+"film": {
+  "name": "Night at the Museum 2",
+  "date": "2009-05-22",
+  "language": "English",
+  "duration": "105",
+  "studio": "20th Century Fox",
+  "people": [
+    {
+      "role": {
+        "name": "Shawn Levy",
+        "profession": "Filmmaker",
+        "date of birth": "1968-07-23"
+      }
+    },
+    {
+      "role": {
+        "name": "Ben Stiller",
+        "profession": "actor",
+        "date of birth": "1965-11-30"
+      }
+    },
+    {
+      "role": {
+        "name": "Owen Wilson",
+        "profession": "actor",
+        "date of birth": "1968-11-18"
+      }
+    },
+    {
+      "role": {
+        "name": "Robin Williams",
+        "profession": "actor",
+        "date of birth": "1951-07-21"
+      }
+    },
+    {
+      "role": {
+        "name": "Robert Ben Garant",
+        "profession": "scriptwriter",
+        "date of birth": "1970-09-14"
+      }
+    },
+    {
+      "role": {
+        "name": "Alan Silvestri",
+        "profession": "composer",
+        "date of birth": "1950-03-26"
+      }
+    },
+    {
+      "role": {
+        "name": "Dick Van Dyke",
+        "profession": "actor",
+        "date of birth": "1925-12-13"
+      }
+    }
+  ],
+  "category": [{"Comedy"}],
+  "review": [
+    {
+      "user": {
+        "name": "John Doe"
+      },
+      "rating": 5
+    },
+    {
+      "user": {
+        "name": "Jane Smith"
+      },
+      "rating": 4.5
+    }
+  ],
+  "tag": [
+    {"Statue"},  {"Comedy"}, {"Magic"}]
+}
+
+"film": {
+  "name": "Night at the Museum 3",
+  "date": "2014-12-24",
+  "language": "English",
+  "duration": "98",
+  "studio": "20th Century Fox",
+  "people": [
+    {
+      "role": {
+        "name": "Shawn Levy",
+        "profession": "Filmmaker",
+        "date of birth": "1968-07-23"
+      }
+    },
+    {
+      "role": {
+        "name": "Ben Stiller",
+        "profession": "actor",
+        "date of birth": "1965-11-30"
+      }
+    },
+    {
+      "role": {
+        "name": "Owen Wilson",
+        "profession": "actor",
+        "date of birth": "1968-11-18"
+      }
+    },
+    {
+      "role": {
+        "name": "Robin Williams",
+        "profession": "actor",
+        "date of birth": "1951-07-21"
+      }
+    },
+    {
+      "role": {
+        "name": "Alan Silvestri",
+        "profession": "composer",
+        "date of birth": "1950-03-26"
+      }
+    },
+    {
+      "role": {
+        "name": "Dick Van Dyke",
+        "profession": "actor",
+        "date of birth": "1925-12-13"
+      }
+    }
+  ],
+  "category": [{"Comedy"}],
+  "review": [
+    {
+      "user": {
+        "name": "John Doe"
+      },
+      "rating": 5
+    },
+    {
+      "user": {
+        "name": "Jane Smith"
+      },
+      "rating": 4.5
+    }
+  ],
+  "tag": [
+    {"Statue"},  {"Comedy"}, {"Magic"}]
+}
