@@ -1,0 +1,207 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+#currentwindow {
+  color: #ff3f3f;
+}
+
+header {
+  background-color: #000000;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 40px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 100px;
+  color: #ff3f3f;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  border-top: 2px solid #ff3f3f;
+  border-bottom: 2px solid #ff3f3f;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+  padding: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: #b64e4e;
+  transition: color 0.3s ease;
+}
+
+#hero {
+  background-image: url("hero-bg.jpg");
+  color: #fff;
+  padding: 100px 0;
+  text-align: center;
+}
+
+#hero h2 {
+  margin: 0;
+  font-size: 36px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #ff5f5f;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #ff3f3f;
+}
+
+#featured-movies {
+  padding: 50px 0;
+}
+
+#featured-movies h2 {
+  text-align: center;
+}
+
+.movie-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.movie-item {
+  width: 30%;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.movie-item img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+#searchInput {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 250px;
+  outline: none;
+}
+
+#searchInput:focus {
+  border-color: #ff3f3f; /* Change border color on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle shadow on focus */
+}
+
+#searchButton {
+  padding: 10px 20px;
+  background-color: #ffffff;
+  border: 2px solid #ff3f3f;
+  border-radius: 5px;
+  color: black;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+#searchButton:hover {
+  background-color: #ff3f3f; /* Darken color on hover */
+  border-color: #ffffff;
+}
+
+#searchButton:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle shadow on focus */
+}
+
+.search {
+  max-width: 1200px;
+  padding: 100px;
+  padding-left: 40%;
+  padding-top: 10%;
+}
+
+.SingleMovie {
+  padding-left: 20%;
+  padding-right: 20%;
+  color: white;
+}
+
+#flex {
+  display: flex;
+  flex-direction: row;
+}
+
+#flex-direction {
+  display: flex;
+  flex-direction: column;
+}
+
+.SingleMovie img {
+  width: 125px;
+  height: 150px;
+  background-color: blue;
+}
+
+.Reviews {
+  font-family: "Jockey One";
+  padding-left: 20%;
+  padding-right: 20%;
+  color: white;
+}
+
+.Reviews h2 {
+  text-align: center;
+  color: white;
+  font-size: 32px;
+}
+
+#Description {
+  padding-left: 10%;
+  width: 800px;
+  height: 100px;
+  flex-direction: column;
+}
+
+#orderbyletter {
+  float: left;
+  clear: both;
+}
+
+#letterstyle {
+  color: #ff3f3f;
+}
