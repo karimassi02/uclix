@@ -3,23 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page d'accueil</title>
-    <link rel="stylesheet" href="../css/style.css" />
+    <title>List of People</title>
+    <style>
+      .people-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .people-card {
+        border: 1px solid #333;
+        padding: 10px;
+        margin: 10px;
+        flex: 0 0 calc(33.33% - 20px);
+      }
+      .people-card h2 {
+        margin: 0;
+      }
+      .people-card img {
+        width: 100%;
+        height: auto;
+      }
+    </style>
   </head>
   <body>
-    <header>
-      <div class="container">
-        <h1>Uclix</h1>
-        <nav>
-          <ul>
-            <li><a href="Accueil.ejs">Home</a></li>
-            <li><a href="Movies.ejs">Movies</a></li>
-            <li><a href="Categories.ejs">Categories</a></li>
-            <li><a href="Top10.ejs">Top 10</a></li>
-            <li><a href="People.ejs" id="currentwindow">People</a></li>
-          </ul>
-        </nav>
+    <div class="people-container">
+      <% people.forEach(people => { %>
+      <div class="people-card">
+        <h2><%= people.name %></h2>
+        <a href="/#">
+          <img src="<%= people.image %>" alt="<%= people.name %>" />
+        </a>
       </div>
-    </header>
+      <% }); %>
+    </div>
   </body>
 </html>
