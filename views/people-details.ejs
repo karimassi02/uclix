@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= people.name %></title>
+    <style>
+      .people-details {
+        display: flex;
+      }
+      .people-details img {
+        width: 50%;
+        height: auto;
+      }
+      .people-details div {
+        width: 50%;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="people-details">
+      <img src="<%= people.image %>" alt="<%= people.name %>" />
+      <div>
+        <h1><%= people.name %></h1>
+        <!-- Display other people details here -->
+      </div>
+    </div>
+  </body>
+</html>

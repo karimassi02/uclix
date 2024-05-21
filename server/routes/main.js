@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Movie = require("../models/movieModel");
+const People = require("../models/movieModel");
 
 //Routes
 
@@ -23,6 +24,11 @@ router.get("", async (req, res) => {
       .limit(perPage)
       .exec();
 
+    const dataPeople = await People.aggregate([{ $sort: { createsAt: -1 } }])
+      .skip(perPage * page - perPage)
+      .limit(perPage)
+      .exec();
+
     const count = await Movie.countDocuments();
     const nextPage = parseInt(page) + 1;
     const hasNextPage = nextPage <= Math.ceil(count / perPage);
@@ -30,6 +36,7 @@ router.get("", async (req, res) => {
     res.render("index", {
       locals,
       data,
+      dataPeople,
       current: page,
       nextPage: hasNextPage ? nextPage : null,
       currentRoute: "/",
@@ -78,10 +85,24 @@ router.get("/top10", (req, res) => {
   });
 });
 
-router.get("/people", (req, res) => {
-  res.render("people", {
-    currentRoute: "/people",
-  });
+router.get("/people", async (req, res) => {
+  try {
+    const people = await People.find();
+    res.render("people", { currentRoute: "people", people });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+router.get("/people-details/:id", async (req, res) => {
+  try {
+    const people = await People.findById(req.params.id);
+    res.render("people-details", { currentRoute: "people-details", people });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal server error");
+  }
 });
 
 module.exports = router;

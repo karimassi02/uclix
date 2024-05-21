@@ -29,7 +29,7 @@
       <% people.forEach(people => { %>
       <div class="people-card">
         <h2><%= people.name %></h2>
-        <a href="/#">
+        <a href="/people-details/<%= people._id %>">
           <img src="<%= people.image %>" alt="<%= people.name %>" />
         </a>
       </div>
