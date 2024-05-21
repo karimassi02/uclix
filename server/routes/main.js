@@ -24,6 +24,11 @@ router.get("", async (req, res) => {
       .limit(perPage)
       .exec();
 
+    const dataPeople = await People.aggregate([{ $sort: { createsAt: -1 } }])
+      .skip(perPage * page - perPage)
+      .limit(perPage)
+      .exec();
+
     const count = await Movie.countDocuments();
     const nextPage = parseInt(page) + 1;
     const hasNextPage = nextPage <= Math.ceil(count / perPage);
@@ -31,6 +36,7 @@ router.get("", async (req, res) => {
     res.render("index", {
       locals,
       data,
+      dataPeople,
       current: page,
       nextPage: hasNextPage ? nextPage : null,
       currentRoute: "/",

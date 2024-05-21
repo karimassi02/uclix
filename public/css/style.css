@@ -339,6 +339,40 @@ article {
   padding: 10 0;
 }
 
+/*Dashboard People*/
+
+.people-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.people-posts {
+  padding: 0;
+  margin: 0;
+}
+
+.people-post-controls form {
+  display: inline-block;
+}
+
+.people-post-controls .btn {
+  display: inline-block;
+  background-color: var(--black);
+  color: var(--gray-light);
+  border: 0;
+  text-decoration: none;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  line-height: 2;
+}
+
+.people-posts li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10 0;
+}
+
 /* search button */
 
 #searchInput {
