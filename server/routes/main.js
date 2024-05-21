@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Movie = require('../models/movieModel');
+const Reviews = require('../models/reviews');
 
 //Routes
 
@@ -59,7 +60,8 @@ router.get('/movie', async (req, res) => {
 router.get('/movie-details/:id', async (req, res) => {
     try {
         const movie = await Movie.findById(req.params.id);
-        res.render('movie-details', {currentRoute: 'movie-details', movie });
+        const reviews = await Reviews.find();
+        res.render('movie-details', {currentRoute: 'movie-details', movie, reviews: reviews });
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal server error');
@@ -76,6 +78,33 @@ router.get('/people', (req,res) => {
     res.render('people',{
         currentRoute: '/people'
     });
+});
+
+// POST route for submitting a review
+router.post('/reviews', async (req, res) => {
+    const { title, description, rating } = req.body;
+    const newReview = new Reviews({
+        title,
+        description,
+        rating
+    });
+
+    try {
+        const savedReview = await newReview.save();
+        res.json(savedReview);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+// GET route for retrieving all reviews
+router.get('/reviews', async (req, res) => {
+    try {
+        const reviews = await Reviews.find();
+        res.render('reviews', {currentRoute: 'reviews', reviews });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
 });
 
 module.exports = router;
