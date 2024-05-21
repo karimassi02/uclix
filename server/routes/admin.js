@@ -83,8 +83,6 @@ router.get("/dashboard", authMiddleware, async (req, res) => {
   }
 });
 
-// Movie
-
 router.get("/add-movie", authMiddleware, async (req, res) => {
   try {
     const locals = {
@@ -112,6 +110,7 @@ router.post("/add-movie", authMiddleware, async (req, res) => {
       category,
       tag,
       image,
+      description,
     } = req.body;
     const newMovie = new Movie({
       name,
@@ -124,6 +123,7 @@ router.post("/add-movie", authMiddleware, async (req, res) => {
       image,
       people,
       reviews,
+      description,
     });
     await newMovie.save();
     res.redirect("/dashboard");
@@ -184,95 +184,6 @@ router.post("/register", async (req, res) => {
 router.delete("/delete-movie/:id", authMiddleware, async (req, res) => {
   try {
     await Movie.deleteOne({ _id: req.params.id });
-    res.redirect("/dashboard");
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal server error");
-  }
-});
-
-// People
-
-router.get("/add-people", authMiddleware, async (req, res) => {
-  try {
-    const locals = {
-      title: "Add people",
-      description: "Add a new people",
-    };
-    const data = await Post.find();
-    res.render("admin/add-people", { locals, layout: adminLayout });
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal server error");
-  }
-});
-
-router.post("/add-people", authMiddleware, async (req, res) => {
-  try {
-    const {
-      name,
-      date,
-      language,
-      duration,
-      studio,
-      people,
-      reviews,
-      category,
-      tag,
-      image,
-    } = req.body;
-    const newPeople = new People({
-      name,
-      date,
-      language,
-      duration,
-      studio,
-      category,
-      tag,
-      image,
-      people,
-      reviews,
-    });
-    await newPeople.save();
-    res.redirect("/dashboard");
-  } catch (error) {
-    console.error(error);
-    res.status(500).send("Internal server error");
-  }
-});
-
-router.get("/edit-people/:id", async (req, res) => {
-  const id = req.params.id;
-
-  try {
-    const people = await people.findById(id);
-    if (!people) {
-      res.status(404).send("people not found");
-    } else {
-      res.render("admin/edit-people", { currentRoute: "edit-people", people });
-    }
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Internal server error");
-  }
-});
-router.put("/edit-people/:id", (req, res) => {
-  const id = req.params.id;
-  const updatedpeople = req.body;
-
-  People.findByIdAndUpdate(id, updatedpeople, { new: true })
-    .then((people) => {
-      res.redirect("/dashboard");
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send("Error occurred while updating people");
-    });
-});
-
-router.delete("/delete-people/:id", authMiddleware, async (req, res) => {
-  try {
-    await People.deleteOne({ _id: req.params.id });
     res.redirect("/dashboard");
   } catch (error) {
     console.error(error);
