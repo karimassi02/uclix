@@ -9,11 +9,6 @@ const jwt = require('jsonwebtoken');
 const adminLayout = '../views/layouts/admin';
 const jwtSecret = process.env.JWT_SECRET;
 
-/*
-    * Get/
-    * Check Login
-*/
-
 const authMiddleware = (req, res, next) => {
     const token = req.cookies.token;
 
@@ -30,11 +25,6 @@ const authMiddleware = (req, res, next) => {
     }
 }
 
-/*
-    * Get/
-    * Admin - Login Page
-*/
-
 router.get('/admin', async (req, res) => {
     try {
         const locals = {
@@ -48,11 +38,6 @@ router.get('/admin', async (req, res) => {
         res.status(500).send('Internal server error');
     }
 });
-
-/*
-    * POST/
-    * Admin - Check Login
-*/
 
 router.post('/admin', async (req, res) => {
     try {
@@ -79,11 +64,6 @@ router.post('/admin', async (req, res) => {
     }
 });
 
-/*
-    * GET/
-    * Admin - Dashboard
-*/
-
 router.get('/dashboard', authMiddleware, async (req, res) => {
     try {
         const locals = {
@@ -102,17 +82,13 @@ router.get('/dashboard', authMiddleware, async (req, res) => {
     }
 });
 
-/*
-    * GET/
-    * Admin - Create New Movie
-*/
-
 router.get('/add-movie', authMiddleware, async (req, res) => {
     try {
         const locals = {
             title: 'Add Movie',
             description: 'Add a new movie'
         }
+        const data = await Post.find();
         res.render('admin/add-movie', { locals, layout: adminLayout });
     } catch (error) {
         console.error(error);
@@ -120,24 +96,20 @@ router.get('/add-movie', authMiddleware, async (req, res) => {
     }
 });
 
-/*
-    * POST/
-    * Admin - Create New Movie
-*/
-
 router.post('/add-movie', authMiddleware, async (req, res) => {
     try {
-        const { name, date, language, duration, studio, people, reviews, category, tag } = req.body;
+        const { name, date, language, duration, studio, people, reviews, category, tag, image } = req.body;
         const newMovie = new Movie({
             name,
             date,
             language,
             duration,
             studio,
-            // people: JSON.parse(people), // Assuming people and reviews are JSON strings
-            // reviews: JSON.parse(reviews),
             category,
-            tag
+            tag,
+            image,
+            people,
+            reviews
         });
         await newMovie.save();
         res.redirect('/dashboard');
@@ -147,41 +119,38 @@ router.post('/add-movie', authMiddleware, async (req, res) => {
     }
 });
 
+router.get('/edit-movie/:id', async (req, res) => {
+    const id = req.params.id;
 
-
-/*
-    * PUT/
-    * Admin - Edit Movie
-*/
-
-router.put('/edit-movie', authMiddleware, async (req, res) => {
     try {
-        await Post.findByIdAndUpdate(req.params.id, {
-            title: req.body.title,
-            body: req.body.body,
-            updateAt: Date.now()
-        });
-        res.redirect(`/edit-movie/${req.params.id}`);
-    } catch (error) {
-        console.error(error);
+        const movie = await Movie.findById(id);
+        if (!movie) {
+            res.status(404).send('Movie not found');
+        } else {
+            res.render('admin/edit-movie', {currentRoute: 'edit-movie', movie });
+        }
+    } catch (err) {
+        console.error(err);
         res.status(500).send('Internal server error');
     }
 });
+router.put('/edit-movie/:id', (req, res) => {
+    const id = req.params.id;
+    const updatedMovie = req.body;
 
-
-
-
-
-/*
-    * Post/
-    * Admin - Register
-*/
+    Movie.findByIdAndUpdate(id, updatedMovie, { new: true })
+        .then(movie => {
+            res.redirect('/dashboard');
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).send('Error occurred while updating movie');
+        });
+});
 
 router.post('/register', async(req,res)=>{
     try{
-
         const {username, password} = req.body;
-        console.log('Request Body:', req.body); 
         const hashedPassword = await bcrypt.hash(password, 10);
         
         try{
@@ -202,14 +171,6 @@ router.post('/register', async(req,res)=>{
     }
 })
 
-
-/*
-    * DELETE/
-    * Admin - Delete Post
-*/
-
-
-
 router.delete('/delete-movie/:id', authMiddleware, async (req, res) => {
     try {
         await Movie.deleteOne({ _id: req.params.id });
@@ -220,20 +181,9 @@ router.delete('/delete-movie/:id', authMiddleware, async (req, res) => {
     }
 });
 
-
-
-
-/*
-    * GET/
-    * Admin - Logout
-*/
-
 router.get("/logout", (req, res) => {
-
     res.clearCookie('token')
-    //res.json({message:"Logged Out successfully"});
     res.redirect('/');
-
 })
 
 module.exports = router;

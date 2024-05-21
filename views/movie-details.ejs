@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= movie.name %></title>
+    <style>
+        .movie-details {
+            display: flex;
+        }
+        .movie-details img {
+            width: 50%;
+            height: auto;
+        }
+        .movie-details div {
+            width: 50%;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="movie-details">
+        <img src="<%= movie.image %>" alt="<%= movie.name %>">
+        <div>
+            <h1><%= movie.name %></h1>
+            <!-- Display other movie details here -->
+        </div>
+    </div>
+</body>
+</html>
