@@ -3,6 +3,7 @@ const router = express.Router();
 const Post = require("../models/movieModel");
 const User = require("../models/User");
 const Movie = require("../models/movieModel");
+const People = require("../models/peopleModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Add people</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      form {
+        background-color: #f0f0f0;
+        border-radius: 8px;
+        padding: 20px;
+        width: 300px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      input[type="text"],
+      input[type="date"],
+      input[type="submit"] {
+        width: calc(100% - 20px);
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navigation">
+      <a href="/dashboard" class="back-link">&larr; Back</a>
+    </div>
+
+    <div class="admin-title">
+      <h2>Add New people</h2>
+    </div>
+
+    <form action="/add-people" method="POST">
+      <input type="text" name="familyname" placeholder="Family name" required />
+      <input
+        type="text"
+        name="firstname"
+        placeholder="First name"
+        required
+      /><br />
+      <input type="date" name="birthday" required /><br />
+      <input type="text" name="role" placeholder="Role" required /><br />
+
+      <br />
+      <input type="text" name="tag" placeholder="Tag" required /><br />
+
+      <input type="text" name="image" placeholder="Image URL" required /><br />
+      <input type="submit" value="Add people" />
+    </form>
+  </body>
+</html>

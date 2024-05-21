@@ -1,0 +1,54 @@
+<!-- Link to go back to the dashboard -->
+<a href="/dashboard">&larr; Back</a>
+
+<div class="admin-title">
+  <h2>Edit people</h2>
+
+  <!-- Form to delete the people -->
+  <form action="/delete-people/<%= people._id %>?_method=DELETE" method="POST">
+    <input type="submit" value="Delete" class="btn-delete btn" />
+  </form>
+</div>
+
+<!-- Form to edit the people -->
+<form action="/edit-people/<%= people._id %>?_method=PUT" method="POST">
+  <!-- Input field for the people's title -->
+  <label for="name"><b>People Name</b></label>
+  <input
+    type="text"
+    placeholder="Enter people familyname"
+    name="Family name"
+    value="<%= people.familyname %>"
+  />
+  <input
+    type="text"
+    placeholder="Enter people firstname"
+    name="firstname"
+    value="<%= people.firstname %>"
+  />
+
+  <!-- Input field for the people's date -->
+  <label for="date"><b>Birthday</b></label>
+  <input type="date" name="date" value="<%= people.date %>" />
+
+  <!-- Input field for the people's tag -->
+  <label for="tag"><b>Tag</b></label>
+  <input
+    type="text"
+    placeholder="Enter Tag"
+    name="tag"
+    value="<%= people.tag %>"
+  />
+
+  <!-- Input field for the people's image -->
+  <label for="image"><b>Image URL</b></label>
+  <input
+    type="text"
+    placeholder="Enter Image URL"
+    name="image"
+    value="<%= people.image %>"
+  />
+
+  <!-- Submit button to update the people -->
+  <input type="submit" value="Update people" class="btn" />
+</form>
