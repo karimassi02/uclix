@@ -1,109 +1,117 @@
-<div class="navigation">
-    <a href="/dashboard" class="back-link">&larr; Back</a>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Add Movie</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-<div class="admin-title">
-    <h2>Add New Movie</h2>
-</div>
+        form {
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-<form action="/add-movie" method="POST" class="movie-form">
-    <input type="text" name="name" placeholder="Name" required><br>
-    <input type="date" name="date" required><br>
-    <input type="text" name="language" placeholder="Language" required><br>
-    <input type="text" name="duration" placeholder="Duration" required><br>
-    <input type="text" name="studio" placeholder="Studio" required><br>
-    
-    <!-- People -->
-    <div id="people">
-        <div class="person">
-            <input type="text" name="people[0][name]" placeholder="Person Name" required>
-            <input type="text" name="people[0][role]" placeholder="Role" required>
-        </div>
+        input[type="text"],
+        input[type="date"],
+        input[type="submit"] {
+            width: calc(100% - 20px);
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <a href="/dashboard" class="back-link">&larr; Back</a>
     </div>
-    <button type="button" id="addPerson" class="add-button">Add Person</button>
-    
-    <!-- Review -->
-    <div id="reviews">
-        <div class="review">
-            <input type="text" name="review[0][user]" placeholder="User Name" required>
-            <input type="number" name="review[0][rating]" placeholder="Rating" required>
-        </div>
+
+    <div class="admin-title">
+        <h2>Add New Movie</h2>
     </div>
-    <button type="button" id="addReview" class="add-button">Add Review</button>
-    
-    <!-- Category -->
-    <select name="category" required>
-        <option value="" disabled selected>Select Category</option>
-        <option value="Science Fiction">Science Fiction</option>
-        <option value="Action">Action</option>
-        <option value="Drama">Drama</option>
-        <!-- Add more options as needed -->
-    </select><br>
-    
-    <input type="text" name="tag" placeholder="Tag" required><br>
-    <input type="submit" value="Add Movie" class="submit-button">
-</form>
 
-<script>
-    document.getElementById("addPerson").addEventListener("click", function() {
-        var peopleDiv = document.getElementById("people");
-        var personDiv = document.createElement("div");
-        var count = peopleDiv.children.length;
-        personDiv.classList.add("person");
-        personDiv.innerHTML = `
-            <input type="text" name="people[${count}][name]" placeholder="Person Name" required>
-            <input type="text" name="people[${count}][role]" placeholder="Role" required>
-        `;
-        peopleDiv.appendChild(personDiv);
-    });
+    <form action="/add-movie" method="POST">
+        <input type="text" name="name" placeholder="Name" required><br>
+        <input type="date" name="date" required><br>
+        <input type="text" name="language" placeholder="Language" required><br>
+        <input type="text" name="duration" placeholder="Duration" required><br>
+        <input type="text" name="studio" placeholder="Studio" required><br>
+        <!-- People -->
+        <div id="people">
+            <div class="person">
+                <input type="text" name="people[0][name]" placeholder="Person Name" required>
+                <input type="text" name="people[0][role]" placeholder="Role" required>
+            </div>
+        </div>
+        <button type="button" id="addPerson">Add Person</button>
+        <!-- Review -->
+        <div id="reviews">
+            <div class="review">
+                <input type="text" name="review[0][user]" placeholder="User Name" required>
+                <input type="number" name="review[0][rating]" placeholder="Rating" required>
+            </div>
+        </div>
+        <button type="button" id="addReview">Add Review</button>
+        <!-- Category -->
+        <select name="category" required>
+            <option value="" disabled selected>Select Category</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="Action">Action</option>
+            <option value="Drama">Drama</option>
+            <!-- Add more options as needed -->
+        </select><br>
+        <input type="text" name="tag" placeholder="Tag" required><br>
+        <input type="text" name="image" placeholder="Image URL" required><br>
+        <input type="submit" value="Add Movie">
+    </form>
 
-    document.getElementById("addReview").addEventListener("click", function() {
-        var reviewsDiv = document.getElementById("reviews");
-        var reviewDiv = document.createElement("div");
-        var count = reviewsDiv.children.length;
-        reviewDiv.classList.add("review");
-        reviewDiv.innerHTML = `
-            <input type="text" name="review[${count}][user]" placeholder="User Name" required>
-            <input type="number" name="review[${count}][rating]" placeholder="Rating" required>
-        `;
-        reviewsDiv.appendChild(reviewDiv);
-    });
-</script>
+    <script>
+        document.getElementById("addPerson").addEventListener("click", function() {
+            var peopleDiv = document.getElementById("people");
+            var personDiv = document.createElement("div");
+            var count = peopleDiv.children.length;
+            personDiv.classList.add("person");
+            personDiv.innerHTML = `
+                <input type="text" name="people[${count}][name]" placeholder="Person Name" required>
+                <input type="text" name="people[${count}][role]" placeholder="Role" required>
+            `;
+            peopleDiv.appendChild(personDiv);
+        });
 
-<style>
-    /* Style for navigation */
-    .navigation {
-        margin-bottom: 20px;
-    }
-    
-    .back-link {
-        text-decoration: none;
-        color: #007bff; /* Blue color, adjust as needed */
-        font-weight: bold;
-    }
-    
-    /* Style for form */
-    .movie-form {
-        width: 80%; /* Adjust width as needed */
-        margin: 0 auto;
-    }
-    
-    .movie-form input,
-    .movie-form select {
-        margin-bottom: 10px;
-    }
-    
-    .add-button {
-        margin-top: 10px;
-    }
-    
-    .submit-button {
-        margin-top: 20px;
-        background-color: #007bff; /* Blue color, adjust as needed */
-        color: #fff; /* White color, adjust as needed */
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-</style>
+        document.getElementById("addReview").addEventListener("click", function() {
+            var reviewsDiv = document.getElementById("reviews");
+            var reviewDiv = document.createElement("div");
+            var count = reviewsDiv.children.length;
+            reviewDiv.classList.add("review");
+            reviewDiv.innerHTML = `
+                <input type="text" name="review[${count}][user]" placeholder="User Name" required>
+                <input type="number" name="review[${count}][rating]" placeholder="Rating" required>
+            `;
+            reviewsDiv.appendChild(reviewDiv);
+        });
+    </script>
+</body>
+</html>

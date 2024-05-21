@@ -7,7 +7,7 @@
     <% data.forEach(movie => { %>
         <li>
             <a href="/movie/<%= movie._id %>">
-                <%= movie.title %> &nearr;
+                <%= movie.name %> &nearr;
             </a>
             <div class="admin-post-controls">
                 <a href="/edit-movie/<%= movie._id %>" class="btn">Edit</a>

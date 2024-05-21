@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-
 const MovieSchema = new Schema({
     name: {
         type: String,
@@ -51,6 +50,10 @@ const MovieSchema = new Schema({
     tag: {
         type: String,
         required: true
+    },
+    image: {
+        type: String,
+        required: false
     }
 });
 
