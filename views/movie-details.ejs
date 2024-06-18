@@ -16,6 +16,32 @@
             width: 50%;
             padding: 20px;
         }
+        .reviews {
+           margin-top:1000px;
+        }
+        .reviews h2 {
+            color: white;
+            text-align:left;
+        }
+        .reviews h3 {
+            color: white;
+            text-align:left;
+        }
+        .reviews p {
+            color: white;
+            text-align:left;
+        }
+        .input-group{
+            color:white;
+        }
+        .review {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        #rating{
+            width:50px;
+        }
     </style>
 </head>
 <body>
@@ -26,5 +52,71 @@
             <!-- Display other movie details here -->
         </div>
     </div>
+    <div class="reviews">
+        <h2>Reviews</h2>
+        <% if (reviews.length > 0) { %>
+            <% reviews.forEach(function(reviews) { %>
+                <div class="review">
+                    <h3><%= reviews.title %></h3>
+                    <p><%= reviews.description %></p>
+                    <p>Rating: <%= reviews.rating %></p>
+                    <p>Created at: <%= reviews.created_at %></p>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No reviews yet.</p>
+        <% } %>
+    </div><div class="submit-review">
+        <h2>Submit a Review</h2>
+        <form action="/movie-details/<%= movie._id %>" method="post">
+            <input type="hidden" name="movie" value="<%= movie._id %>">
+            <div class="input-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="input-group">
+                <label for="description">Review:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <div class="input-group">
+                <label for="rating">Rating:</label>
+                <input type="number" id="rating" name="rating" min="1" max="5" required>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <style>
+        .submit-review {
+            width: 50%;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        .input-group label {
+            display: block;
+        }
+        .input-group input, .input-group textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </body>
 </html>

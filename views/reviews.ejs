@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reviews</title>
+</head>
+<body>
+    <h1>Reviews</h1>
+    <% if (reviews.length > 0) { %>
+        <% reviews.forEach(function(review) { %>
+            <div>
+                <h2><%= reviews.title %></h2>
+                <p><%= reviews.description %></p>
+                <p>Rating: <%= reviews.rating %></p>
+                <p>Created at: <%= reviews.created_at %></p>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <p>No reviews yet.</p>
+    <% } %>
+</body>
+</html>

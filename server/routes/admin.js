@@ -86,8 +86,6 @@ router.get("/dashboard", authMiddleware, async (req, res) => {
   }
 });
 
-// Movie
-
 router.get("/add-movie", authMiddleware, async (req, res) => {
   try {
     const locals = {
@@ -115,6 +113,7 @@ router.post("/add-movie", authMiddleware, async (req, res) => {
       category,
       tag,
       image,
+      description,
     } = req.body;
     const newMovie = new Movie({
       name,
@@ -127,6 +126,7 @@ router.post("/add-movie", authMiddleware, async (req, res) => {
       image,
       people,
       reviews,
+      description,
     });
     await newMovie.save();
     res.redirect("/dashboard");
