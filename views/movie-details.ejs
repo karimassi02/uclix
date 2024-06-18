@@ -68,7 +68,7 @@
         <% } %>
     </div><div class="submit-review">
         <h2>Submit a Review</h2>
-        <form action="/movie-details/:id" method="POST">
+        <form action="/movie-details/<%= movie._id %>" method="post">
             <input type="hidden" name="movie" value="<%= movie._id %>">
             <div class="input-group">
                 <label for="name">Name:</label>

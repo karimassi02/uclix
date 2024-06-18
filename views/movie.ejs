@@ -13,7 +13,7 @@
             border: 1px solid #333;
             padding: 10px;
             margin: 10px;
-            flex: 0 0 calc(33.33% - 20px);
+            flex: 0 0 calc(33.33% - 45px);
         }
         .movie-card h2 {
             margin: 0;
@@ -26,12 +26,17 @@
 </head>
 <body>
     <div class="movie-container">
-        <% movie.forEach(movie => { %>
+        <% movies.forEach(movie => { %> 
             <div class="movie-card">
                 <h2><%= movie.name %></h2>
                 <a href="/movie-details/<%= movie._id %>">
                     <img src="<%= movie.image %>" alt="<%= movie.name %>">
                 </a>
+                <div class="movie-tags">
+                    <% movie.tag.forEach(tag => { %>
+                        <a href="/tags/<%= tag %>"><%= tag %></a>
+                    <% }); %>
+                </div>
             </div>
         <% }); %>
     </div>

@@ -52,7 +52,7 @@ const MovieSchema = new Schema({
     },
   ],
   tag: {
-    type: String,
+    type: [String],
     required: true,
   },
   image: {

@@ -55,8 +55,8 @@ router.get("/categorie", (req, res) => {
 
 router.get("/movie", async (req, res) => {
   try {
-    const movie = await Movie.find();
-    res.render("movie", { currentRoute: "movie", movie });
+    const movie = await Movie.find().select('name image tag'); 
+    res.render("movie", { currentRoute: "movie", movies: movie });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
@@ -90,19 +90,36 @@ router.post('/movie-details/:id', async (req, res) => {
 
 router.get('/top10', async (req, res) => {
   try {
-      const topMovies = await Reviews.aggregate([
-          { $group: { _id: "$movie", avgRating: { $avg: "$rating" } } },
-          { $sort: { avgRating: -1 } },
-          { $limit: 10 }
-      ]);
+    const topMovies = await Reviews.aggregate([
+      { $lookup: { from: 'movies', localField: 'movie', foreignField: '_id', as: 'movie' } },
+      { $unwind: "$movie" },
+      { $group: { 
+          _id: "$movie._id", 
+          avgRating: { $avg: "$rating" }, 
+          name: { $first: "$movie.name" }, 
+          imageUrl: { $first: "$movie.image" } 
+      }},
+      { $sort: { avgRating: -1 } },
+      { $limit: 10 }
+    ]);
 
-      res.render('top10', {
-          movies: topMovies,
-          currentRoute: '/top10'
-      });
+    res.render('top10', {
+        movies: topMovies,
+        currentRoute: '/top10'
+    });
   } catch (err) {
-      console.error(err);
-      res.status(500).send("Server Error");
+    console.error(err);
+    res.status(500).send("Server Error");
+  }
+});
+
+router.get("/tags/:tag", async (req, res) => {
+  try {
+    const movies = await Movie.find({ tag: req.params.tag });
+    res.render("movie", { movies, currentRoute: req.path }); // Pass 'movies' and 'currentRoute' to your template
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
   }
 });
 
