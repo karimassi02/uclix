@@ -26,9 +26,11 @@
 </div>
 
 <ul class="people-posts">
-  <% data.forEach(people => { %>
+  <% datapeople.forEach(people => { %>
   <li>
-    <a href="/people/<%= people._id %>"> <%= people.name %> &nearr; </a>
+    <a href="/people/<%= people._id %>">
+      <%= people.firstname %> <%= people.familyname %> &nearr;
+    </a>
     <div class="people-post-controls">
       <a href="/edit-people/<%= people._id %>" class="btn">Edit</a>
       <form

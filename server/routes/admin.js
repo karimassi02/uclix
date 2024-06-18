@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Post = require("../models/movieModel");
+const PostPeople = require("../models/peopleModel");
 const User = require("../models/User");
 const Movie = require("../models/movieModel");
 const People = require("../models/peopleModel");
@@ -72,9 +73,11 @@ router.get("/dashboard", authMiddleware, async (req, res) => {
       description: "Simple blog",
     };
     const data = await Post.find();
+    const datapeople = await PostPeople.find();
     res.render("admin/dashboard", {
       locals,
       data,
+      datapeople,
       layout: adminLayout,
     });
   } catch (error) {
@@ -199,7 +202,7 @@ router.get("/add-people", authMiddleware, async (req, res) => {
       title: "Add people",
       description: "Add a new people",
     };
-    const data = await Post.find();
+    const data = await PostPeople.find();
     res.render("admin/add-people", { locals, layout: adminLayout });
   } catch (error) {
     console.error(error);
@@ -209,29 +212,14 @@ router.get("/add-people", authMiddleware, async (req, res) => {
 
 router.post("/add-people", authMiddleware, async (req, res) => {
   try {
-    const {
-      name,
-      date,
-      language,
-      duration,
-      studio,
-      people,
-      reviews,
-      category,
-      tag,
-      image,
-    } = req.body;
+    const { familyname, firstname, birthday, role, tag, image } = req.body;
     const newPeople = new People({
-      name,
-      date,
-      language,
-      duration,
-      studio,
-      category,
+      familyname,
+      firstname,
+      birthday,
+      role,
       tag,
       image,
-      people,
-      reviews,
     });
     await newPeople.save();
     res.redirect("/dashboard");
@@ -245,7 +233,7 @@ router.get("/edit-people/:id", async (req, res) => {
   const id = req.params.id;
 
   try {
-    const people = await people.findById(id);
+    const people = await People.findById(id);
     if (!people) {
       res.status(404).send("people not found");
     } else {
